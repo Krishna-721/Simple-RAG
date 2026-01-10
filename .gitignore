@@ -60,3 +60,5 @@ htmlcov/
 Thumbs.db
 *.sublime-workspace
 *.sublime-project
+
+Internal_DOC_Reader/settings.py
