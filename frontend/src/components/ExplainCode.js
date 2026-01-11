@@ -29,16 +29,24 @@ export default function ExplainCode() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Explain Code</h2>
+    <div>
+      <h2>💻 Explain Code</h2>
       
-      <div style={{ marginBottom: "10px" }}>
-        <label>
+      <div style={{ marginBottom: "20px" }}>
+        <label style={{ fontSize: "1rem", fontWeight: "500", color: "#333" }}>
           Language:
           <select 
             value={language} 
             onChange={e => setLanguage(e.target.value)}
-            style={{ marginLeft: "10px" }}
+            style={{
+              marginLeft: "10px",
+              padding: "8px 12px",
+              fontSize: "1rem",
+              borderRadius: "6px",
+              border: "2px solid #e0e0e0",
+              backgroundColor: "#fff",
+              cursor: "pointer"
+            }}
           >
             <option value="python">Python</option>
             <option value="javascript">JavaScript</option>
@@ -54,30 +62,68 @@ export default function ExplainCode() {
         placeholder="Paste your code here..."
         value={code}
         onChange={e => setCode(e.target.value)}
-        rows={10}
-        style={{ width: "100%", fontFamily: "monospace" }}
+        rows={12}
+        style={{
+          width: "100%",
+          fontFamily: "'Monaco', 'Courier New', monospace",
+          padding: "10px",
+          border: "2px solid #e0e0e0",
+          borderRadius: "6px",
+          fontSize: "0.95rem",
+          resize: "vertical"
+        }}
       />
       
       <br />
       
       <button 
         onClick={handleSubmit}
-        disabled={loading}
-        style={{ marginTop: "10px", padding: "10px 20px" }}
+        disabled={loading || !code.trim()}
+        style={{
+          marginTop: "15px",
+          padding: "10px 30px",
+          fontSize: "1rem",
+          backgroundColor: "#667eea",
+          color: "white",
+          border: "none",
+          borderRadius: "6px",
+          cursor: loading || !code.trim() ? "not-allowed" : "pointer",
+          transition: "all 0.3s ease",
+          opacity: loading || !code.trim() ? 0.6 : 1
+        }}
       >
-        {loading ? "Analyzing..." : "Explain Code"}
+        {loading ? "🔄 Analyzing..." : "🔍 Explain Code"}
       </button>
 
       {error && (
-        <div style={{ color: "red", marginTop: "10px" }}>
-          Error: {error}
+        <div style={{
+          color: "#d32f2f",
+          marginTop: "15px",
+          padding: "10px",
+          backgroundColor: "#ffebee",
+          borderRadius: "6px",
+          borderLeft: "4px solid #d32f2f"
+        }}>
+          ⚠️ Error: {error}
         </div>
       )}
 
       {explanation && (
-        <div style={{ marginTop: "20px", padding: "10px", backgroundColor: "#f5f5f5" }}>
-          <h3>Explanation:</h3>
-          <pre style={{ whiteSpace: "pre-wrap" }}>{explanation}</pre>
+        <div style={{
+          marginTop: "20px",
+          padding: "15px",
+          backgroundColor: "#f5f5f5",
+          borderRadius: "6px",
+          borderLeft: "4px solid #667eea"
+        }}>
+          <h3 style={{ marginTop: 0, color: "#333" }}>📝 Explanation:</h3>
+          <pre style={{
+            whiteSpace: "pre-wrap",
+            wordWrap: "break-word",
+            margin: 0,
+            maxHeight: "500px",
+            overflowY: "auto"
+          }}>{explanation}</pre>
         </div>
       )}
     </div>

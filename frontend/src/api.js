@@ -19,7 +19,7 @@ export async function ask(question) {
 }
 
 export async function explainCode(code, language) {
-  const res = await fetch(`${BASE_URL}/explain-code/`, {
+  const res = await fetch(`${BASE_URL}/explain_code/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ language, code })
@@ -28,7 +28,7 @@ export async function explainCode(code, language) {
 }
 
 export async function projectFlow(path) {
-  const res = await fetch(`${BASE_URL}/project-flow/`, {
+  const res = await fetch(`${BASE_URL}/project_flow/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ project_path: path })
