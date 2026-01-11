@@ -1,6 +1,6 @@
 # CodeScope - AI-Powered Code Analysis Assistant
 
-A simple RAG (Retrieval-Augmented Generation) app built with Django and React.js that provides AI-powered code analysis and assistance.
+A simple RAG (Retrieval-Augmented Generation) bassed system built with Django and React.js that provides AI-powered code analysis and assistance.
 
 ## Tech Stack
 
